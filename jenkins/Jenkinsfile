@@ -3,22 +3,22 @@ pipeline {
     stages {
         stage('---update---') {
             steps {
-                sh 'echo "apt update" '
+                sh 'sudo apt update '
             }
         }
         stage('--install--') {
             steps {
-               sh ' echo " install "'
+               sh ' sudo apt install -y nginx'
             }
         }
         stage('--run--') {
             steps {
-               sh ' echo " run "'
+               sh 'sudo systemctl start nginx'
             }
         }
         stage('--status--') {
             steps {
-                sh 'echo " status "'
+                sh 'sudo systemctl status nginx'
             }
         }
     }
